@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_estados/components/contador.dart';
+import 'package:flutter_estados/screens/mostrar_variable.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({super.key});
@@ -15,32 +15,52 @@ class _MyhomeState extends State<Myhome> {
   Widget build(BuildContext context) {
   //Contador cont = Contador(variable: contador);
     return Center(
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          IconButton(
-            iconSize: 70,
-            icon: Icon(Icons.remove),
-            onPressed: (){
-              setState(() {
-                contador--;
-              });
-            },
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                iconSize: 70,
+                icon: Icon(Icons.remove),
+                onPressed: (){
+                  setState(() {
+                    contador--;
+                  });
+                },
+              ),
+              SizedBox(width: 20,),
+              Text("$contador", style: TextStyle(fontSize: 60),),
+              SizedBox(width: 20),
+              IconButton(
+                iconSize: 70,
+                icon: Icon(Icons.add),
+                onPressed: (){
+                  setState(() {
+                    contador++;
+                  });
+                },
+              ),
+            ],
           ),
-          SizedBox(width: 20,),
-          Text("$contador", style: TextStyle(fontSize: 60),),
           SizedBox(width: 20),
-          IconButton(
-            iconSize: 70,
-            icon: Icon(Icons.add),
-            onPressed: (){
-              setState(() {
-                contador++;
-              });
-            },
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MostrarContador(contador: contador))
+                  );
+                },
+                child: Text("Mostrar"))
+            ],
+          )
         ],
       ),
+      
     );
       
   }
