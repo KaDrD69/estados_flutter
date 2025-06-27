@@ -13,6 +13,11 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.blueAccent,
+          centerTitle: true,
+          title: Text("Variable"),
+        ),
         body: Myhome(),
         ),
       ); 

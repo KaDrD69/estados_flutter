@@ -6,11 +6,19 @@ class MostrarContador extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("$contador")
-      ],
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+      ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("$contador", style: TextStyle(fontSize: 60),)
+          ],
+        ),
+      ),
     );
   }
 }
